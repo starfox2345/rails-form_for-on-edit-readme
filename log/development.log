@@ -761,3 +761,263 @@ Processing by PostsController#edit as HTML
   [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 4]]
   Rendered posts/edit.html.erb within layouts/application (16.0ms)
 Completed 200 OK in 347ms (Views: 318.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-02 01:53:35.591124"], ["updated_at", "2021-07-02 01:53:35.591124"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/posts/new" for 127.0.0.1 at 2021-07-01 22:07:32 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 421ms (Views: 404.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2021-07-01 22:07:44 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zpv4vSUQ89VK+VGNEYQLSoFgz5Fuzmof+kBU871NCkeTyih+Er5fx01K362A7Iq6T4l4OB3XjTmfZpZK0SzngA==", "title"=>"boolie", "description"=>"boo boolie", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "boolie"], ["description", "boo boolie"], ["created_at", "2021-07-02 02:07:44.149970"], ["updated_at", "2021-07-02 02:07:44.149970"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 7ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2021-07-01 22:07:44 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 37ms (Views: 30.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/5/edit" for 127.0.0.1 at 2021-07-01 22:07:50 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 57ms (Views: 37.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/5/edit" for 127.0.0.1 at 2021-07-01 22:08:18 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 38ms (Views: 20.9ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/posts/5" for 127.0.0.1 at 2021-07-01 22:08:33 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jPfV1bPVhzYdZdYobaOj7gFMlgGOTmXSvb/Yxrfo0d55pgUWhHsrJBrWWAj8yyIez6UhqP1XgvTYmRp/24k8GQ==", "post"=>{"title"=>"boolie", "description"=>"boooooooooolieeee"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", nil], ["description", nil], ["updated_at", "2021-07-02 02:08:33.903643"], ["id", 5]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 7ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2021-07-01 22:08:33 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/5/edit" for 127.0.0.1 at 2021-07-01 22:09:52 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 41ms (Views: 35.9ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/posts/5" for 127.0.0.1 at 2021-07-01 22:10:01 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dbykYT+nN8kOiYQYi+xJYxa1ISNorqP2w8IDhfaSYbeA7XSiCAmb2wk6CjgahMiT2FyWihu3RNCm5ME8mvOMcA==", "post"=>{"title"=>"boolie", "description"=>"booolin"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2021-07-01 22:10:01 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/5ediy" for 127.0.0.1 at 2021-07-01 22:10:05 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5ediy"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts//edit" for 127.0.0.1 at 2021-07-01 22:10:09 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=edit):
+  
+app/controllers/posts_controller.rb:7:in `show'
+  Rendering /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.9ms)
+  Rendering /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.2ms)
+Started GET "/posts/5/edit" for 127.0.0.1 at 2021-07-01 22:10:13 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 26ms (Views: 23.7ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/posts/5" for 127.0.0.1 at 2021-07-01 22:10:16 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qkqItYlx32w79D5DyqS+H9WT922graFqwDDhTwASt4xfG1h2vt9zfjxHsGNbzD/vG3pAxNO0RkylFiP2bHNaSw==", "post"=>{"title"=>"boolie", "description"=>""}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2021-07-01 22:10:16 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/5/edit" for 127.0.0.1 at 2021-07-01 22:12:22 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 25ms (Views: 15.8ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/posts/5" for 127.0.0.1 at 2021-07-01 22:12:30 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j4sTR7j+mXWs5JUyfMNKw7vJrHXyf0/W1LgZTk/KVA962sOEj1A1Z6tXGxLtq8szdSAb3IFmqPCxntv3I6u5yA==", "post"=>{"title"=>"boolie", "description"=>"rawr"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2021-07-01 22:12:30 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/5/edit" for 127.0.0.1 at 2021-07-01 22:14:15 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 25ms (Views: 14.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/5/edit" for 127.0.0.1 at 2021-07-01 22:35:10 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `price' for #<Post:0x00007f92054ea7e8>):
+     5:   <%= f.text_field :title %><br>
+     6: 
+     7:   <label>Post description:</label><br>
+     8:   <%= f.text_area :price %><br>
+     9: 
+    10:   <%= f.submit %>
+    11: <% end %>
+  
+app/views/posts/edit.html.erb:8:in `block in _app_views_posts_edit_html_erb__415193014081150849_70132565515180'
+app/views/posts/edit.html.erb:3:in `_app_views_posts_edit_html_erb__415193014081150849_70132565515180'
+  Rendering /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/yatsun/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.5ms)
+Started GET "/posts/5/edit" for 127.0.0.1 at 2021-07-01 22:35:17 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/5/edit" for 127.0.0.1 at 2021-07-01 22:39:31 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 27ms (Views: 18.6ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/posts/5" for 127.0.0.1 at 2021-07-01 22:39:37 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P23JKXduFMoswPdn8tq0cVlTvbn6K793ijE6PLOD6Y7KPBnqQMC42CtzeUdjsjWBl7oKEIkyWFHvF/iF3+IESQ==", "post"=>{"title"=>"boooolie", "description"=>"rawr"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "boooolie"], ["description", "rawr"], ["updated_at", "2021-07-02 02:39:37.860962"], ["id", 5]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 7ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2021-07-01 22:39:37 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 0.4ms)
+
+
